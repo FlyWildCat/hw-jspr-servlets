@@ -1,11 +1,13 @@
 package ru.pda.repository;
 
+import org.springframework.stereotype.Repository;
 import ru.pda.model.Post;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
+@Repository
 public class PostRepository {
   private final ConcurrentHashMap<Long, Post> storage;
   private final AtomicLong idCounter;

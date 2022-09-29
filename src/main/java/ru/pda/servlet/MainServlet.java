@@ -1,5 +1,6 @@
 package ru.pda.servlet;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.pda.controller.PostController;
 import ru.pda.exception.NotFoundException;
 import ru.pda.repository.PostRepository;
@@ -21,9 +22,11 @@ public class MainServlet extends HttpServlet {
   @Override
   public void init() {
 
-    final var repository = new PostRepository();
-    final var service = new PostService(repository);
-    controller = new PostController(service);
+//    final var repository = new PostRepository();
+//    final var service = new PostService(repository);
+//    controller = new PostController(service);
+    final var context = new AnnotationConfigApplicationContext("ru.pda");
+    controller = context.getBean(PostController.class);
   }
 
   @Override
