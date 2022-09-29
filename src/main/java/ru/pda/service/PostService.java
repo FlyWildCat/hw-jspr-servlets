@@ -1,13 +1,13 @@
 package ru.pda.service;
 
+import org.springframework.stereotype.Service;
 import ru.pda.exception.NotFoundException;
 import ru.pda.model.Post;
 import ru.pda.repository.PostRepository;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
+@Service
 public class PostService {
   private final PostRepository repository;
 
@@ -15,7 +15,7 @@ public class PostService {
     this.repository = repository;
   }
 
-  public Collection<Post> all() {
+  public List<Post> all() {
     return repository.all();
   }
 
